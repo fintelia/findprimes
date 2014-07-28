@@ -15,9 +15,10 @@ bool operator< (const primeFactor& p1, const primeFactor& p2){
 int main(){
 	std::priority_queue<primeFactor> primeFactors;
 
-	unsigned int i = 2;
+	unsigned int i = 5;
 	std::cout << 2 << std::endl;
-	primeFactors.push(primeFactor(i));
+	std::cout << 3 << std::endl;
+	primeFactors.push(primeFactor(3));
 
 	unsigned int nextComposite;	
 	while(true){
@@ -30,9 +31,9 @@ int main(){
 		while(i < nextComposite){
 			std::cout << i << std::endl;
 			primeFactors.push(primeFactor(i));
-			i++;
+			i += 2;
 		}
 		if(i == nextComposite)
-			i++;
+			i += 2;
 	}
 }

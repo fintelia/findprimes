@@ -1,2 +1,2 @@
 all:
-	clang++ -o primes fp.cpp -std=c++11 -Wall
+	clang++ -o primes fp.cpp -std=c++11 -Wall -O3
