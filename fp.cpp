@@ -1,11 +1,12 @@
 #include <queue>
 #include <iostream>
+#include <iomanip>
 
 struct primeFactor{
-	unsigned int prime;
-	unsigned int nextMultiple;
+	unsigned long long prime;
+	unsigned long long nextMultiple;
 
-	primeFactor(unsigned int p): prime(p), nextMultiple(p*p) {}
+	primeFactor(unsigned long long p): prime(p), nextMultiple(p*p) {}
 };
 
 bool operator< (const primeFactor& p1, const primeFactor& p2){
@@ -15,12 +16,13 @@ bool operator< (const primeFactor& p1, const primeFactor& p2){
 int main(){
 	std::priority_queue<primeFactor> primeFactors;
 
-	unsigned int i = 5;
-	std::cout << 2 << std::endl;
-	std::cout << 3 << std::endl;
+	unsigned long long n = 1;
+	unsigned long long i = 5;
+	std::cout << "[" << std::setw(6) << n++ << "] " << 2 << std::endl;
+	std::cout << "[" << std::setw(6) << n++ << "] " << 3 << std::endl;
 	primeFactors.push(primeFactor(3));
 
-	unsigned int nextComposite;	
+	unsigned long long nextComposite;	
 	while(true){
 		auto p = primeFactors.top();
 		primeFactors.pop();
@@ -29,7 +31,7 @@ int main(){
 		primeFactors.push(p);
 
 		while(i < nextComposite){
-			std::cout << i << std::endl;
+			std::cout << "[" << std::setw(6) << n++ << "] " << i << std::endl;
 			primeFactors.push(primeFactor(i));
 			i += 2;
 		}
