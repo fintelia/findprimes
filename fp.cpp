@@ -27,7 +27,7 @@ int main(){
 		auto p = primeFactors.top();
 		primeFactors.pop();
 		nextComposite = p.nextMultiple;
-		p.nextMultiple += p.prime;
+		p.nextMultiple += p.prime * 2;
 		primeFactors.push(p);
 
 		while(i < nextComposite){
